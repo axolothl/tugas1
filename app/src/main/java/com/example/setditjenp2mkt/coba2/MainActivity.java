@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     double input4 = 0.0;
     double nilaikuadrat = 0.0;
     double nilaiakar = 0.0;
-    boolean isTambah, isKurang, isBagi, isKali, isKoma, isKuadrat, isAkar, checker, akhir;
+    boolean isTambah, isKurang, isBagi, isKali, isKoma, cekk, isKuadrat, isAkar, checker, akhir;
 
 
     @Override
@@ -387,9 +387,19 @@ public class MainActivity extends AppCompatActivity {
                             log.setText(log.getText() + "" + ((int)input2));
                         }
                     }
-                    isKoma = false;
-                    akhir = true;
                     input1 = 0;
+                    input2 = 0;
+                    input3 = 0;
+                    input4 = 0;
+                    isTambah = false;
+                    isKurang = false;
+                    isKali = false;
+                    isBagi = false;
+                    isKuadrat = false;
+                    isAkar = false;
+                    isKoma = false;
+                    cekk = false;
+                    akhir = true;
                 }
             }
         });
@@ -432,6 +442,8 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + ".");
                     isKoma = true;
                 }
+                cekk = true;
+                akhir = false;
                 isKuadrat = false;
                 isAkar = false;
             }
@@ -495,7 +507,7 @@ public class MainActivity extends AppCompatActivity {
     protected void hasil(){
         input2 = Double.parseDouble(inputText.getText() + "");
         if (isTambah){
-            if (isKoma){
+            if (isKoma || cekk){
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
@@ -516,7 +528,7 @@ public class MainActivity extends AppCompatActivity {
             }
             isTambah = false;
         } else if (isKurang){
-            if (isKoma){
+            if (isKoma || cekk){
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
@@ -537,7 +549,7 @@ public class MainActivity extends AppCompatActivity {
             }
             isKurang = false;
         } else if (isKali){
-            if (isKoma){
+            if (isKoma || cekk){
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
