@@ -33,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
     double input1 = 0.0;
     double input2 = 0.0;
     double input3 = 0.0;
+    double input4 = 0.0;
     double nilaikuadrat = 0.0;
-    boolean isTambah, isKurang, isBagi, isKali, isKoma, isKuadrat, checker, akhir;
+    double nilaiakar = 0.0;
+    boolean isTambah, isKurang, isBagi, isKali, isKoma, isKuadrat, isAkar, checker, akhir;
 
 
     @Override
@@ -81,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     inputText.setText(inputText.getText() + "0");
                 }
+                isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -99,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + "1");
                 }
                 isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -117,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + "2");
                 }
                 isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -135,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + "3");
                 }
                 isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -153,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + "4");
                 }
                 isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -171,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + "5");
                 }
                 isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -189,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + "6");
                 }
                 isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -207,6 +217,7 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + "7");
                 }
                 isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -225,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + "8");
                 }
                 isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -243,6 +255,7 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + "9");
                 }
                 isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -259,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     hasil();
                     input1 = Double.parseDouble(inputText.getText() + "");
-                    if (isKuadrat){
+                    if (isKuadrat || isAkar){
                         log.setText(log.getText() + "" + " + ");
                     } else{
                         if (isKoma){
@@ -288,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     hasil();
                     input1 = Double.parseDouble(inputText.getText() + "");
-                    if (isKuadrat){
+                    if (isKuadrat || isAkar){
                         log.setText(log.getText() + "" + " - ");
                     } else{
                         if (isKoma){
@@ -317,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     hasil();
                     input1 = Double.parseDouble(inputText.getText() + "");
-                    if (isKuadrat){
+                    if (isKuadrat || isAkar){
                         log.setText(log.getText() + "" + " x ");
                     } else{
                         if (isKoma){
@@ -346,7 +359,7 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     hasil();
                     input1 = Double.parseDouble(inputText.getText() + "");
-                    if (isKuadrat){
+                    if (isKuadrat || isAkar){
                         log.setText(log.getText() + "" + " / ");
                     } else{
                         if (isKoma){
@@ -365,9 +378,9 @@ public class MainActivity extends AppCompatActivity {
         samadengan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isTambah || isKurang || isKali || isBagi ||isKuadrat){
+                if (isTambah || isKurang || isKali || isBagi || isKuadrat || isAkar){
                     hasil();
-                    if (!isKuadrat){
+                    if (!isKuadrat && !isAkar){
                         if (isKoma){
                             log.setText(log.getText() + "" + input2);
                         } else{
@@ -389,6 +402,7 @@ public class MainActivity extends AppCompatActivity {
                 input1 = 0;
                 input2 = 0;
                 input3 = 0;
+                input4 = 0;
                 isKoma = false;
                 checker = false;
                 akhir = false;
@@ -418,6 +432,8 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(inputText.getText() + ".");
                     isKoma = true;
                 }
+                isKuadrat = false;
+                isAkar = false;
             }
         });
 
@@ -447,14 +463,23 @@ public class MainActivity extends AppCompatActivity {
         akar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input1 = Double.parseDouble(inputText.getText() + "");
-                if (isKoma){
-                    inputText.setText(Math.sqrt(input1) + "");
-                    log.setText(" \u221a " + input1);
+                if (input1 == 0){
+                    input1 = Double.parseDouble(inputText.getText() + "");
+                    if (isKoma){
+                        log.setText(" \u221a " + input1);
+                    } else{
+                        log.setText(" \u221a " + (int)input1);
+                    }
                 } else{
-                    inputText.setText((Math.sqrt(input1)) + "");
-                    log.setText(" \u221a " + (int)input1);
+                    input4 = Double.parseDouble(inputText.getText() + "");
+                    if (isKoma){
+                        log.setText(log.getText() + "" + " \u221a " + input4);
+                    } else{
+                        log.setText(log.getText() + "" + " \u221a " + (int)input4);
+                    }
                 }
+                akar();
+                isAkar = true;
             }
         });
 
@@ -474,12 +499,18 @@ public class MainActivity extends AppCompatActivity {
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
+                } else if (input4 != 0){
+                    input2 = nilaiakar;
+                    input4 = 0;
                 }
                 inputText.setText(input1 + input2 + "");
             } else{
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
+                } else if (input4 != 0){
+                    input2 = nilaiakar;
+                    input4 = 0;
                 }
                 inputText.setText((int)(input1 + input2) + "");
             }
@@ -489,12 +520,18 @@ public class MainActivity extends AppCompatActivity {
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
+                } else if (input4 != 0){
+                    input2 = nilaiakar;
+                    input4 = 0;
                 }
                 inputText.setText(input1 - input2 + "");
             } else{
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
+                } else if (input4 != 0){
+                    input2 = nilaiakar;
+                    input4 = 0;
                 }
                 inputText.setText((int)(input1 - input2) + "");
             }
@@ -504,12 +541,18 @@ public class MainActivity extends AppCompatActivity {
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
+                } else if (input4 != 0){
+                    input2 = nilaiakar;
+                    input4 = 0;
                 }
                 inputText.setText(input1 * input2 + "");
             } else{
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
+                } else if (input4 != 0){
+                    input2 = nilaiakar;
+                    input4 = 0;
                 }
                 inputText.setText((int)(input1 * input2) + "");
             }
@@ -519,12 +562,18 @@ public class MainActivity extends AppCompatActivity {
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
+                } else if (input4 != 0){
+                    input2 = nilaiakar;
+                    input4 = 0;
                 }
                 inputText.setText(input1 / input2 + "");
             } else{
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
+                } else if (input4 != 0){
+                    input2 = nilaiakar;
+                    input4 = 0;
                 }
                 inputText.setText((int)(input1 / input2) + "");
             }
@@ -535,6 +584,18 @@ public class MainActivity extends AppCompatActivity {
                     inputText.setText(nilaikuadrat + "");
                 } else{
                     inputText.setText((int)nilaikuadrat + "");
+                }
+            }
+        } else if (isAkar){
+            if (!checker){
+                if (isKoma){
+                    inputText.setText(nilaiakar + "");
+                } else{
+                    if (nilaiakar % 1 != 0){
+                        inputText.setText(nilaiakar + "");
+                    } else{
+                        inputText.setText((int)nilaiakar + "");
+                    }
                 }
             }
         }
@@ -554,6 +615,28 @@ public class MainActivity extends AppCompatActivity {
                 nilaikuadrat = Math.pow(input3, 2);
             } else{
                 nilaikuadrat = (int)Math.pow(input3, 2);
+            }
+        }
+    }
+
+    protected void akar(){
+        if (input4 == 0){
+            if (isKoma){
+                nilaiakar = Math.sqrt(input1);
+            } else{
+                nilaiakar = Math.sqrt(input1);
+                if (nilaiakar % 1 == 0) {
+                    nilaiakar = (int)nilaiakar;
+                }
+            }
+        } else{
+            if (isKoma){
+                nilaiakar = Math.sqrt(input4);
+            } else{
+                nilaiakar = Math.sqrt(input4);
+                if (nilaiakar % 1 == 0) {
+                    nilaiakar = (int)nilaiakar;
+                }
             }
         }
     }
