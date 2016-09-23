@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float cek = Float.parseFloat(inputText.getText() + "");
-                if ((cek == 0 || checker) && !isKoma){
+                if ((cek == 0 || checker || akhir) && !isKoma){
                     inputText.setText("1");
                     checker = false;
                     if (akhir){
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float cek = Float.parseFloat(inputText.getText() + "");
-                if ((cek == 0 || checker) && !isKoma){
+                if ((cek == 0 || checker || akhir) && !isKoma){
                     inputText.setText("2");
                     checker = false;
                     if (akhir){
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float cek = Float.parseFloat(inputText.getText() + "");
-                if ((cek == 0 || checker) && !isKoma){
+                if ((cek == 0 || checker || akhir) && !isKoma){
                     inputText.setText("3");
                     checker = false;
                     if (akhir){
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float cek = Float.parseFloat(inputText.getText() + "");
-                if ((cek == 0 || checker) && !isKoma){
+                if ((cek == 0 || checker || akhir) && !isKoma){
                     inputText.setText("4");
                     checker = false;
                     if (akhir){
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float cek = Float.parseFloat(inputText.getText() + "");
-                if ((cek == 0 || checker) && !isKoma){
+                if ((cek == 0 || checker || akhir) && !isKoma){
                     inputText.setText("5");
                     checker = false;
                     if (akhir){
@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float cek = Float.parseFloat(inputText.getText() + "");
-                if ((cek == 0 || checker) && !isKoma){
+                if ((cek == 0 || checker || akhir) && !isKoma){
                     inputText.setText("6");
                     checker = false;
                     if (akhir){
@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float cek = Float.parseFloat(inputText.getText() + "");
-                if ((cek == 0 || checker) && !isKoma){
+                if ((cek == 0 || checker || akhir) && !isKoma){
                     inputText.setText("7");
                     checker = false;
                     if (akhir){
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float cek = Float.parseFloat(inputText.getText() + "");
-                if ((cek == 0 || checker) && !isKoma){
+                if ((cek == 0 || checker || akhir) && !isKoma){
                     inputText.setText("8");
                     checker = false;
                     if (akhir){
@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float cek = Float.parseFloat(inputText.getText() + "");
-                if ((cek == 0 || checker) && !isKoma){
+                if ((cek == 0 || checker || akhir) && !isKoma){
                     inputText.setText("9");
                     checker = false;
                     if (akhir){
