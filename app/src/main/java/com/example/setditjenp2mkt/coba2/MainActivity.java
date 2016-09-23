@@ -399,6 +399,7 @@ public class MainActivity extends AppCompatActivity {
                     isAkar = false;
                     isKoma = false;
                     cekk = false;
+                    checker = false;
                     akhir = true;
                 }
             }
@@ -413,7 +414,14 @@ public class MainActivity extends AppCompatActivity {
                 input2 = 0;
                 input3 = 0;
                 input4 = 0;
+                isTambah = false;
+                isKurang = false;
+                isKali = false;
+                isBagi = false;
+                isKuadrat = false;
+                isAkar = false;
                 isKoma = false;
+                cekk = false;
                 checker = false;
                 akhir = false;
             }
@@ -435,7 +443,7 @@ public class MainActivity extends AppCompatActivity {
         koma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!isKoma && checker) {
+                if ((!isKoma && checker) || akhir) {
                     inputText.setText("0.");
                     isKoma = true;
                 } else{
