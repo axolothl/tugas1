@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float cek = Float.parseFloat(inputText.getText() + "");
-                if ((cek == 0 || checker) && !isKoma){
+                if ((cek == 0 || checker || akhir) && !isKoma){
                     inputText.setText("0");
                     checker = false;
                     if (akhir){
@@ -507,7 +507,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 input1 = Double.parseDouble(inputText.getText() + "");
-                inputText.setText(input1 / 100 + "");
+                if (isKoma){
+                    log.setText(input1 + "%");
+                } else{
+                    log.setText((int)input1 + "%");
+                }
+                input1 = input1 / 100;
+                if (input1 % 1 == 0){
+                    inputText.setText((int)input1);
+                } else{
+                    inputText.setText(input1 + "");
+                }
+                checker = true;
+                akhir =true;
+                input1 = 0;
             }
         });
     }
