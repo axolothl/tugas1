@@ -273,18 +273,36 @@ public class MainActivity extends AppCompatActivity {
                     hasil();
                     input1 = Double.parseDouble(inputText.getText() + "");
                     if (isKuadrat || isAkar){
-                        log.setText(log.getText() + "" + " + ");
+                        if(akhir){
+                            log.setText(inputText.getText() + "" + " + ");
+                        } else{
+                            log.setText(log.getText() + "" + " + ");
+                        }
                     } else{
                         if (isKoma){
-                            log.setText(log.getText() + "" + input2 + " + ");
+                            if (akhir){
+                                log.setText(input2 + " + ");
+                            } else{
+                                log.setText(log.getText() + "" + input2 + " + ");
+                            }
                         } else{
-                            log.setText(log.getText() + "" + ((int)input2) + " + ");
+                            if (akhir){
+                                if (input2 % 1 == 0){
+                                    log.setText((int)(input2) + " + ");
+                                }else{
+                                    log.setText((input2) + " + ");
+                                }
+
+                            } else{
+                                log.setText(log.getText() + "" + ((int)input2) + " + ");
+                            }
                         }
                     }
                 }
                 isTambah = true;
                 checker = true;
                 isKoma = false;
+                akhir = false;
             }
         });
 
@@ -302,18 +320,36 @@ public class MainActivity extends AppCompatActivity {
                     hasil();
                     input1 = Double.parseDouble(inputText.getText() + "");
                     if (isKuadrat || isAkar){
-                        log.setText(log.getText() + "" + " - ");
+                        if(akhir){
+                            log.setText(inputText.getText() + "" + " - ");
+                        } else{
+                            log.setText(log.getText() + "" + " - ");
+                        }
                     } else{
                         if (isKoma){
-                            log.setText(log.getText() + "" + input2 + " - ");
+                            if (akhir){
+                                log.setText(input2 + " - ");
+                            } else{
+                                log.setText(log.getText() + "" + input2 + " - ");
+                            }
                         } else{
-                            log.setText(log.getText() + "" + ((int)input2) + " - ");
+                            if (akhir){
+                                if (input2 % 1 == 0){
+                                    log.setText((int)(input2) + " - ");
+                                }else{
+                                    log.setText((input2) + " - ");
+                                }
+
+                            } else{
+                                log.setText(log.getText() + "" + ((int)input2) + " - ");
+                            }
                         }
                     }
                 }
                 isKurang = true;
                 checker = true;
                 isKoma = false;
+                akhir = false;
             }
         });
 
@@ -331,18 +367,36 @@ public class MainActivity extends AppCompatActivity {
                     hasil();
                     input1 = Double.parseDouble(inputText.getText() + "");
                     if (isKuadrat || isAkar){
-                        log.setText(log.getText() + "" + " x ");
+                        if(akhir){
+                            log.setText(inputText.getText() + "" + " x ");
+                        } else{
+                            log.setText(log.getText() + "" + " x ");
+                        }
                     } else{
                         if (isKoma){
-                            log.setText(log.getText() + "" + input2 + " x ");
+                            if (akhir){
+                                log.setText(input2 + " x ");
+                            } else{
+                                log.setText(log.getText() + "" + input2 + " x ");
+                            }
                         } else{
-                            log.setText(log.getText() + "" + ((int)input2) + " x ");
+                            if (akhir){
+                                if (input2 % 1 == 0){
+                                    log.setText((int)(input2) + " x ");
+                                }else{
+                                    log.setText((input2) + " x ");
+                                }
+
+                            } else{
+                                log.setText(log.getText() + "" + ((int)input2) + " x ");
+                            }
                         }
                     }
                 }
                 isKali = true;
                 checker = true;
                 isKoma = false;
+                akhir = false;
             }
         });
 
@@ -360,18 +414,36 @@ public class MainActivity extends AppCompatActivity {
                     hasil();
                     input1 = Double.parseDouble(inputText.getText() + "");
                     if (isKuadrat || isAkar){
-                        log.setText(log.getText() + "" + " / ");
+                        if(akhir){
+                            log.setText(inputText.getText() + "" + " / ");
+                        } else{
+                            log.setText(log.getText() + "" + " / ");
+                        }
                     } else{
                         if (isKoma){
-                            log.setText(log.getText() + "" + input2 + " / ");
+                            if (akhir){
+                                log.setText(input2 + " / ");
+                            } else{
+                                log.setText(log.getText() + "" + input2 + " / ");
+                            }
                         } else{
-                            log.setText(log.getText() + "" + ((int)input2) + " / ");
+                            if (akhir){
+                                if (input2 % 1 == 0){
+                                    log.setText((int)(input2) + " / ");
+                                }else{
+                                    log.setText((input2) + " / ");
+                                }
+
+                            } else{
+                                log.setText(log.getText() + "" + ((int)input2) + " / ");
+                            }
                         }
                     }
                 }
                 isBagi = true;
                 checker = true;
                 isKoma = false;
+                akhir = false;
             }
         });
 
@@ -387,7 +459,6 @@ public class MainActivity extends AppCompatActivity {
                             log.setText(log.getText() + "" + ((int)input2));
                         }
                     }
-                    input1 = 0;
                     input2 = 0;
                     input3 = 0;
                     input4 = 0;
@@ -445,6 +516,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if ((!isKoma && checker) || akhir) {
                     inputText.setText("0.");
+                    if (akhir){
+                        log.setText("");
+                    }
                     isKoma = true;
                 } else if (!isKoma){
                     inputText.setText(inputText.getText() + ".");
@@ -532,11 +606,16 @@ public class MainActivity extends AppCompatActivity {
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
-                } else if (input4 != 0){
+                }
+                if (input4 != 0){
                     input2 = nilaiakar;
                     input4 = 0;
                 }
-                inputText.setText(input1 + input2 + "");
+                if ((input1 + input2) % 1 != 0){
+                    inputText.setText((input1 + input2) + "");
+                } else {
+                    inputText.setText((int)(input1 + input2) + "");
+                }
             } else{
                 if(input3 != 0){
                     input2 = nilaikuadrat;
@@ -557,7 +636,11 @@ public class MainActivity extends AppCompatActivity {
                     input2 = nilaiakar;
                     input4 = 0;
                 }
-                inputText.setText(input1 - input2 + "");
+                if ((input1 - input2) % 1 != 0){
+                    inputText.setText((input1 - input2) + "");
+                } else {
+                    inputText.setText((int)(input1 - input2) + "");
+                }
             } else{
                 if(input3 != 0){
                     input2 = nilaikuadrat;
@@ -578,7 +661,11 @@ public class MainActivity extends AppCompatActivity {
                     input2 = nilaiakar;
                     input4 = 0;
                 }
-                inputText.setText(input1 * input2 + "");
+                if ((input1 + input2) % 1 != 0){
+                    inputText.setText((input1 * input2) + "");
+                } else {
+                    inputText.setText((int)(input1 * input2) + "");
+                }
             } else{
                 if(input3 != 0){
                     input2 = nilaikuadrat;
@@ -599,7 +686,11 @@ public class MainActivity extends AppCompatActivity {
                     input2 = nilaiakar;
                     input4 = 0;
                 }
-                inputText.setText(input1 / input2 + "");
+                if ((input1 + input2) % 1 != 0){
+                    inputText.setText((input1 / input2) + "");
+                } else {
+                    inputText.setText((int)(input1 / input2) + "");
+                }
             } else{
                 if(input3 != 0){
                     input2 = nilaikuadrat;
