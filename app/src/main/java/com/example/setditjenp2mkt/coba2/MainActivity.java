@@ -622,8 +622,7 @@ public class MainActivity extends AppCompatActivity {
                 if(input3 != 0){
                     input2 = nilaikuadrat;
                     input3 = 0;
-                }
-                if (input4 != 0){
+                } else if (input4 != 0){
                     input2 = nilaiakar;
                     input4 = 0;
                 }
