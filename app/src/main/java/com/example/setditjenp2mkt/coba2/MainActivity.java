@@ -446,7 +446,7 @@ public class MainActivity extends AppCompatActivity {
                 if ((!isKoma && checker) || akhir) {
                     inputText.setText("0.");
                     isKoma = true;
-                } else{
+                } else if (!isKoma){
                     inputText.setText(inputText.getText() + ".");
                     isKoma = true;
                 }
