@@ -543,10 +543,18 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else{
                     input3 = Double.parseDouble(inputText.getText() + "");
-                    if (isKoma){
-                        log.setText(log.getText() + "" + input3 + " \u00b2 ");
+                    if (akhir){
+                        if (isKoma){
+                            log.setText(input3 + " \u00b2 ");
+                        } else{
+                            log.setText((int)input3 + " \u00b2 ");
+                        }
                     } else{
-                        log.setText(log.getText() + "" + (int)input3 + " \u00b2 ");
+                        if (isKoma){
+                            log.setText(log.getText() + "" + input3 + " \u00b2 ");
+                        } else{
+                            log.setText(log.getText() + "" + (int)input3 + " \u00b2 ");
+                        }
                     }
                 }
                 kuadrat();
@@ -566,10 +574,18 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else{
                     input4 = Double.parseDouble(inputText.getText() + "");
-                    if (isKoma){
-                        log.setText(log.getText() + "" + " \u221a " + input4);
+                    if (akhir){
+                        if (isKoma){
+                            log.setText("\u221a " + input4);
+                        } else{
+                            log.setText(" \u221a " + (int)input4);
+                        }
                     } else{
-                        log.setText(log.getText() + "" + " \u221a " + (int)input4);
+                        if (isKoma){
+                            log.setText(log.getText() + "" + " \u221a " + input4);
+                        } else{
+                            log.setText(log.getText() + "" + " \u221a " + (int)input4);
+                        }
                     }
                 }
                 akar();
